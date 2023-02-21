@@ -1,23 +1,13 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import pytermgui as ptg
-# import netmiko as nko
+import netmiko as nko
 import time
 
 
 def define_slow_macro(
     ms_per_char: int = 50, lang: ptg.MarkupLanguage = ptg.tim
 ) -> str:
-    """Defines a slow typer macro, returns its name.
-    Args:
-        ms_per_char: How many milliseconds should pass between each
-            char being displayed.
-        lang: The markup language to define the new macro on.
-    Returns:
-        The name of the newly defined macro. The name follows the form:
-            `slow12345`
-        ...where `12345` is the last 5 characters of the current `time.time()`.
-    """
     start = time.time()
     def _macro(text: str) -> str:
         current = time.time()
